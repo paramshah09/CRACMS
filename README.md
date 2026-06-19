@@ -1,6 +1,6 @@
 # Cyber Risk Assessment & Compliance Management System (CRACMS)
 
-A full-stack GRC (Governance, Risk, and Compliance) web application built as an academic project to demonstrate practical information security management concepts. CRACMS implements real-world workflows used by GRC analysts, internal auditors, and compliance officers — including a 5×5 risk scoring matrix, multi-framework compliance tracking, and an audit findings lifecycle — in a clean, self-contained local deployment.
+CRACMS is a web-based Governance, Risk, and Compliance (GRC) management system developed as a cybersecurity academic project. The goal of the project was to understand how organisations manage risks, track compliance requirements, and handle audit findings through a single platform.
 
 ---
 
@@ -22,13 +22,17 @@ A full-stack GRC (Governance, Risk, and Compliance) web application built as an 
 
 ## Project Overview
 
-CRACMS was designed to bridge the gap between theoretical GRC concepts taught in a Cyber Security curriculum and the practical tooling that organisations actually use. Rather than using a generic CRUD app as a portfolio project, this system models the three pillars of an information security management program:
+CRACMS (Cyber Risk Assessment and Compliance Management System) is a web-based Governance, Risk, and Compliance (GRC) application developed as part of a cybersecurity project.
 
-- **Risk management** — identify, score, and track risks using a Likelihood × Impact matrix aligned with ISO 31000 principles.
-- **Compliance tracking** — map controls to frameworks such as ISO/IEC 27001:2022, NIST CSF 2.0, or the Digital Personal Data Protection Act (DPDP) 2023, and record assessment status per control.
-- **Audit management** — log findings from internal or external audits, assign owners and remediation plans, and track each finding through to closure.
+The purpose of the project was to understand how organisations identify and manage risks, monitor compliance requirements, and track audit findings using a single platform. Instead of building a generic CRUD application, I chose a GRC-focused problem statement because it closely relates to real-world cybersecurity operations and governance processes.
 
-The system is intentionally built without heavy frameworks or ORMs, so every layer — SQL schema, HTTP routing, frontend DOM manipulation — is visible and readable. This makes it a practical learning artefact as well as a deployable tool.
+The application consists of three main modules:
+
+- **Risk Register**: Identify, assess, and track organisational risks using a 5×5 likelihood and impact matrix.
+- **Compliance Tracker**: Manage compliance frameworks, controls, and assessment status.
+- **Audit Findings Tracker**: Record audit observations, assign owners, and monitor remediation activities.
+
+The project was built using Flask, SQLite, HTML, CSS, and JavaScript and follows a modular architecture using Flask Blueprints.
 
 ---
 
