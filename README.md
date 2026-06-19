@@ -303,14 +303,21 @@ All API responses are JSON. All write operations (`POST`, `PUT`, `DELETE`) requi
 
 ## Screenshots
 
-> _Screenshots to be added after the first local deployment._
+### Dashboard
 
-| Page | Preview |
-|---|---|
-| Dashboard | _[ dashboard-screenshot.png ]_ |
-| Risk Register | _[ risk-register-screenshot.png ]_ |
-| Compliance Tracker | _[ compliance-screenshot.png ]_ |
-| Audit Findings | _[ audit-findings-screenshot.png ]_ |
+![Dashboard](screenshots/dashboard.png)
+
+### Risk Register
+
+![Risk Register](screenshots/risk-register.png)
+
+### Compliance Tracker
+
+![Compliance Tracker](screenshots/compliance.png)
+
+### Audit Findings
+
+![Audit Findings](screenshots/audit-findings.png)
 
 ---
 
