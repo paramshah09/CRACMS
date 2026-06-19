@@ -1,0 +1,5 @@
+# CRACMS dependencies
+# Everything else the project uses (sqlite3, pathlib, datetime) is part
+# of Python's standard library and does not need to be installed.
+
+Flask==3.1.3

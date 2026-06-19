@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard · CRACMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+
+    <!-- ============ Sidebar ============ -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">◆</span>
+        <span class="brand-name">CRACMS</span>
+      </div>
+      <nav class="nav">
+        <a href="/" class="nav-link" data-page="dashboard"><span class="nav-icon">▣</span>Dashboard</a>
+        <a href="/risk-register" class="nav-link" data-page="risk-register"><span class="nav-icon">▤</span>Risk Register</a>
+        <a href="/compliance" class="nav-link" data-page="compliance"><span class="nav-icon">▥</span>Compliance</a>
+        <a href="/audit-findings" class="nav-link" data-page="audit-findings"><span class="nav-icon">▦</span>Audit Findings</a>
+      </nav>
+      <div class="sidebar-footer">
+        <span class="status-dot"></span>
+        <span class="status-text">Local instance</span>
+      </div>
+    </aside>
+
+    <!-- ============ Main ============ -->
+    <main class="main">
+      <div class="topbar">
+        <p class="eyebrow">[ OVERVIEW ]</p>
+        <h1>Risk &amp; Compliance Dashboard</h1>
+        <p class="subtitle">A snapshot of the current risk register, control compliance, and audit findings.</p>
+      </div>
+
+      <!-- KPI cards -- one per field returned by GET /api/dashboard/stats -->
+      <section class="kpi-grid" id="kpi-grid">
+        <div class="kpi-card">
+          <p class="kpi-label">Total Risks</p>
+          <p class="kpi-value accent-default" id="kpi-total-risks">—</p>
+        </div>
+        <div class="kpi-card">
+          <p class="kpi-label">Open Risks</p>
+          <p class="kpi-value accent-info" id="kpi-open-risks">—</p>
+        </div>
+        <div class="kpi-card">
+          <p class="kpi-label">Closed Risks</p>
+          <p class="kpi-value accent-default" id="kpi-closed-risks">—</p>
+        </div>
+        <div class="kpi-card">
+          <p class="kpi-label">Total Controls</p>
+          <p class="kpi-value accent-default" id="kpi-total-controls">—</p>
+        </div>
+        <div class="kpi-card">
+          <p class="kpi-label">Compliant Controls</p>
+          <p class="kpi-value accent-info" id="kpi-compliant-controls">—</p>
+        </div>
+        <div class="kpi-card">
+          <p class="kpi-label">Total Findings</p>
+          <p class="kpi-value accent-default" id="kpi-total-findings">—</p>
+        </div>
+        <div class="kpi-card">
+          <p class="kpi-label">Overdue Findings</p>
+          <p class="kpi-value accent-critical" id="kpi-overdue-findings">—</p>
+        </div>
+      </section>
+
+      <div class="two-col">
+        <!-- Risk Levels summary -->
+        <div class="card">
+          <div class="card-header">
+            <h2>Risk Levels</h2>
+            <span class="hint">Share of total risks</span>
+          </div>
+          <div class="bar-list" id="risk-levels-list">
+            <p class="empty-state">Loading…</p>
+          </div>
+        </div>
+
+        <!-- Compliance Statistics summary -->
+        <div class="card">
+          <div class="card-header">
+            <h2>Compliance Statistics</h2>
+            <span class="hint">Share of total controls</span>
+          </div>
+          <div class="bar-list" id="compliance-stats-list">
+            <p class="empty-state">Loading…</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Audit Statistics summary -->
+      <div class="card" style="margin-top: 18px;">
+        <div class="card-header">
+          <h2>Audit Statistics</h2>
+          <span class="hint">Share of total findings</span>
+        </div>
+        <div class="bar-list" id="audit-stats-list">
+          <p class="empty-state">Loading…</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/common.js"></script>
+  <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

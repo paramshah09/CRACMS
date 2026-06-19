@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audit Findings · CRACMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+
+    <!-- ============ Sidebar ============ -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">◆</span>
+        <span class="brand-name">CRACMS</span>
+      </div>
+      <nav class="nav">
+        <a href="/" class="nav-link" data-page="dashboard"><span class="nav-icon">▣</span>Dashboard</a>
+        <a href="/risk-register" class="nav-link" data-page="risk-register"><span class="nav-icon">▤</span>Risk Register</a>
+        <a href="/compliance" class="nav-link" data-page="compliance"><span class="nav-icon">▥</span>Compliance</a>
+        <a href="/audit-findings" class="nav-link" data-page="audit-findings"><span class="nav-icon">▦</span>Audit Findings</a>
+      </nav>
+      <div class="sidebar-footer">
+        <span class="status-dot"></span>
+        <span class="status-text">Local instance</span>
+      </div>
+    </aside>
+
+    <!-- ============ Main ============ -->
+    <main class="main">
+      <div class="topbar" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap: wrap; gap: 14px;">
+        <div>
+          <p class="eyebrow">[ AUDIT FINDINGS ]</p>
+          <h1>Findings Tracker</h1>
+          <p class="subtitle">Observations from internal or external audits, tracked through to closure.</p>
+        </div>
+        <button class="btn btn-primary" id="btn-add-finding">+ Add Finding</button>
+      </div>
+
+      <div class="card">
+        <div class="filters-bar">
+          <select id="filter-status">
+            <option value="">All Statuses</option>
+            <option>Open</option>
+            <option>In Progress</option>
+            <option>Closed</option>
+            <option>Overdue</option>
+          </select>
+          <select id="filter-severity">
+            <option value="">All Severities</option>
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+            <option>Critical</option>
+          </select>
+          <button class="btn btn-sm" id="btn-clear-filters">Clear filters</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Finding</th>
+                <th>Severity</th>
+                <th>Status</th>
+                <th>Owner</th>
+                <th>Due Date</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="findings-table-body">
+              <tr><td colspan="7" class="empty-state">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ============ Add / Edit Finding Modal ============ -->
+  <div class="modal-overlay" id="finding-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="finding-modal-title">Add Finding</h3>
+        <button class="btn-ghost" onclick="closeModal('finding-modal')">✕</button>
+      </div>
+      <form id="finding-form">
+        <input type="hidden" id="finding-id" />
+        <div class="modal-body">
+          <div class="field-row">
+            <div class="field-group">
+              <label for="finding-title">Title *</label>
+              <input type="text" id="finding-title" required placeholder="e.g. MFA not enforced for admin accounts" />
+            </div>
+            <div class="field-group">
+              <label for="finding-severity">Severity</label>
+              <select id="finding-severity">
+                <option>Low</option>
+                <option selected>Medium</option>
+                <option>High</option>
+                <option>Critical</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="finding-description">Description</label>
+            <textarea id="finding-description" placeholder="What was observed during the audit?"></textarea>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label for="finding-status">Status</label>
+              <select id="finding-status">
+                <option selected>Open</option>
+                <option>In Progress</option>
+                <option>Closed</option>
+                <option>Overdue</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="finding-owner">Owner</label>
+              <input type="text" id="finding-owner" placeholder="e.g. IT Security Team" />
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="finding-risk">Linked Risk</label>
+            <select id="finding-risk">
+              <option value="">— None —</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="finding-remediation">Remediation Plan</label>
+            <textarea id="finding-remediation" placeholder="What corrective action is planned?"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label for="finding-due-date">Due Date</label>
+            <input type="date" id="finding-due-date" />
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn" onclick="closeModal('finding-modal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Finding</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/static/js/common.js"></script>
+  <script src="/static/js/audit.js"></script>
+</body>
+</html>
